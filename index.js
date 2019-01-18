@@ -9,9 +9,12 @@ const connection = mysql.createConnection({
 
 connection.query(
     'SELECT * FROM `todos`',
-    function (err, results, fields) {
-        console.log(results); // results contains rows returned by server
-        console.log(fields); // fields contains extra meta data about results, if available
+    (error, results) => {
+        if (error) {
+            console.log(error)
+        }
+
+        console.log(results);
     }
 );
 
